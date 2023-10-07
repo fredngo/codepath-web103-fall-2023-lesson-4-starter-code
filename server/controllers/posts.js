@@ -23,7 +23,7 @@ const create = async (req, res) => {
   try {
     const { title, content } = req.body
     const results = await Post.create(title, content)
-    res.status(201).json(results.rows[0])
+    res.status(201).json(results.rows)
   } catch (error) {
     res.status(400).json( { error: error.message } )
   }
@@ -34,7 +34,7 @@ const update = async (req, res) => {
   try {
     const { title, content } = req.body
     const results = await Post.update(req.params.id, title, content)
-    res.status(200).json(results.rows)
+    res.status(201).json(results.rows)
   } catch (error) {
     res.status(400).json( { error: error.message } )
   }

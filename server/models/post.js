@@ -16,8 +16,8 @@ const create = (title, content) => {
 }
 
 const update = (id, title, content) => {
-  const query = 'UPDATE blogposts SET title = $1, content = $2 WHERE id = $3'
-  return pool.query(query, [title, content, id])
+  const query = 'UPDATE blogposts SET title = $2, content = $3 WHERE id = $1'
+  return pool.query(query, [id, title, content])
 }
 
 const deletePost = (id) => {
