@@ -6,11 +6,14 @@ const getAllPosts = () => request('GET', postsURL)
 const getPostsById = (id) => request('GET', `${postsURL}/${id}`)
 
 // new functions to create, update, and delete blog posts
-
-
-
+const createPost = (post) => request('POST', postsURL, post)
+const updatePost = (post) => request('PATCH', `${postsURL}/${post.id}`, post)
+const deletePost = (id) => request('DELETE', `${postsURL}/${id}`)
 
 export default {
     getAllPosts,
-    getPostsById
+    getPostsById,
+    createPost,
+    updatePost,
+    deletePost
 }
