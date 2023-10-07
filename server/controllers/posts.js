@@ -1,6 +1,6 @@
 import Post from '../models/post.js'
 
-const getPosts = async (req, res) => {
+const index = async (req, res) => {
   try {
     const results = await Post.findAll()
     res.status(200).json(results.rows)
@@ -9,7 +9,7 @@ const getPosts = async (req, res) => {
   }
 }
 
-const getPostsById = async (req, res) => {
+const show = async (req, res) => {
   try {
     const results = await Post.findOne(req.params.id)
     res.status(200).json(results.rows[0])
@@ -32,6 +32,6 @@ const getPostsById = async (req, res) => {
 
 
 export default {
-  getPosts,
-  getPostsById
+  index,
+  show
 }
